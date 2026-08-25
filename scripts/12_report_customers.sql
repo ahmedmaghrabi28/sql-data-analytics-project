@@ -58,7 +58,7 @@ SELECT
 	sum(quantity) AS total_quantity,
 	COUNT(DISTINCT product_key) AS total_products,
 	MAX(order_date) AS last_order_date,
-	DATEDIFF(MONTH,MIN(order_date),MAX(order_date)) AS life_span
+	DATEDIFF(MONTH,MIN(order_date),MAX(order_date)) AS lifespan
 FROM base_query
 GROUP BY 
 	customer_key,
@@ -79,8 +79,8 @@ SELECT
 		ELSE '50 and above'
 	END AS age_group,
 	CASE
-		WHEN life_span >= 12 AND total_sales > 5000 THEN 'VIP'
-		WHEN life_span >= 12 AND total_sales <= 5000 THEN 'Regular'
+		WHEN lifespan >= 12 AND total_sales > 5000 THEN 'VIP'
+		WHEN lifespan >= 12 AND total_sales <= 5000 THEN 'Regular'
 		ELSE 'New'
 	END AS customer_segment,
 	last_order_date,
@@ -89,7 +89,7 @@ SELECT
 	total_sales,
 	total_quantity,
 	total_products,
-	life_span,
+	lifespan,
 	-- Compute average order value (AOV)
 	CASE
 		WHEN total_orders = 0 THEN  0
@@ -97,9 +97,7 @@ SELECT
 	END AS avg_order_value,
 	-- Compute average monthly spend
 	CASE 
-		WHEN life_span = 0 THEN total_sales
-		ELSE total_sales/life_span
+		WHEN lifespan = 0 THEN total_sales
+		ELSE total_sales/lifespan
 	END AS	avg_monthly_spend
 FROM customer_aggregation
-
-
