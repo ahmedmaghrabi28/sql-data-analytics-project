@@ -3,6 +3,13 @@ A comprehensive collection of SQL scripts for data exploration, analytics, and r
 This repository contains SQL queries designed to help data analysts and BI professionals quickly explore, segment, and analyze data within a relational database. Each script focuses on a specific analytical theme and demonstrates best practices for SQL queries.
 
 ---
+## Prerequisites & Data Source
+
+This project relies on the data warehouse architecture and database schema built in the [Data Warehouse Project](https://github.com/ahmedmaghrabi28/sql-data-warehouse-project/tree/main). 
+
+Please make sure you have set up and populated the database using that project before running the analytics scripts in this repository.
+
+---
 
 ##  License
 
